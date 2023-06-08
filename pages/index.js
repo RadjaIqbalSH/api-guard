@@ -36,7 +36,7 @@ export default function Index(props) {
 
   const makeRequest = async (url, type) => {
     const res = await fetch(`/api/${url}`)
-    if(res.headers.get('X-RateLimit-Remaining') === "1") {
+    if(res.headers.get('X-RateLimit-Remaining') === "1" || res.headers.get('X-RateLimit-Remaining') === "0") {
       window.location.reload()
     }
     setResponse((current) => ({
